@@ -77,6 +77,10 @@ a {
     margin-left: 2rem;
 }
 
+.nav-link:active{
+    color:var(--header-link-active)
+}
+
 .nav-link{
     height: 1.2rem;
     font-weight: 400;
