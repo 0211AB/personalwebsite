@@ -46,7 +46,7 @@ a {
 
 h1{
     color:var(--std-color);
-    font-size: 3.5rem;
+    font-size: 4.5rem;
 }
 
 h1 .title{
@@ -55,27 +55,27 @@ h1 .title{
 
 h3{
     color:var(--purple);
-    font-size: 1.2rem;
+    font-size: 2.2rem;
     font-weight: 400;
 }
 
 h4{
     color:var(--comment);
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 
 @media only screen and (max-width: 768px) {
     h1{
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     h3{
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     
     h4{
         color:var(--comment);
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -201,24 +201,17 @@ svg {
 
 /*@Timeline */
 .container{
-    margin:0 auto;
+    margin:25% auto 0 auto;
     padding:0 25%;
     position: relative;
     display:flex;
-    overflow-x: visible;
-    overflow-y: hidden;
+    flex-direction: column;
+    overflow: hidden;
     min-height:100vh;
 }
 
-#timeline{
-    position:relative;
-    top:54vh;
-    flex-grow: 0.1;
-    align-content: stretch;
-    background-color: var(--purple);
-    display:none;
-    overflow:visible;
-    min-width:0.1px
+#heading{
+    position: relative;
 }
 
 @media only screen and (max-width: 768px){
@@ -227,60 +220,36 @@ svg {
     }
 }
 
-
-.slide-top {
-	-webkit-animation: slide-top 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-top 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            display:block;
-}
-
-@-webkit-keyframes slide-top {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(-100px);
-              transform: translateY(-100px);
-    }
-  }
-  @keyframes slide-top {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(-100px);
-              transform: translateY(-100px);
-    }
-  }
-  
-
 #contents{
     position:relative;
-    flex-grow: 99.9;
-    align-content: stretch;
-    top:30vh;
-    padding:0 5%;
-    flex-direction:column;
+    min-height: 50vh;
+    padding-bottom:20%;
+}
+
+#contents2{
+    position:relative;
+    min-height: 50vh;
+    padding-bottom:20%;
+}
+
+#circle{
+    position:absolute;
+    top:50%;left:-5%;
+    height:15px;
+    width:15px;
+    border-radius:50%;
+    background-color: var(--header-link-hover);
+    display: none;
 }
 
 @media only screen and (max-width: 600px) {
     #contents{
         padding:0 10%;
     }
-}
 
-
-#circle{
-    position:absolute;
-    top: -5.5px;
-    left: -6.9px;
-    height:15px;
-    width:15px;
-    border-radius:50%;
-    background-color: var(--header-link-hover);
-    display: none;
+    #circle{
+        left:-8%;
+    }
 }
 
 .pulsate-fwd {
@@ -320,8 +289,8 @@ svg {
 
 
 .tilt-in-fwd-tr {
-	-webkit-animation: tilt-in-fwd-tr 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s both;
-	        animation: tilt-in-fwd-tr 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s both;
+	-webkit-animation: tilt-in-fwd-tr 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	        animation: tilt-in-fwd-tr 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
 }
 
 @-webkit-keyframes tilt-in-fwd-tr {
@@ -350,8 +319,8 @@ svg {
   }
 
 .slide-in-left{
-	-webkit-animation: slide-in-left 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6s both;
-	        animation: slide-in-left 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6s both;
+	-webkit-animation: slide-in-left 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4s both;
+	        animation: slide-in-left 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4s both;
 }
 
 @-webkit-keyframes slide-in-left {
@@ -379,3 +348,34 @@ svg {
       opacity: 1;
     }
 }
+
+.slide-in-right {
+	-webkit-animation: slide-in-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
