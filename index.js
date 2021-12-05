@@ -1,8 +1,53 @@
-const circle = document.getElementById('circle')
+const navspan = document.querySelectorAll('.nav-link span')
+const navlink = document.querySelectorAll('.nav-link')
+
+const navlogo = document.getElementById('nav-logo')
+
+navlogo.addEventListener('mouseover', () => {
+
+    Array.from(navlogo.children).forEach((span) => {
+        span.style.color = "#808080"
+    });
+})
+
+navlogo.addEventListener('mouseout', () => {
+    Array.from(navlogo.children).forEach((span) => {
+        span.style.color = "#dbdbdb"
+    });
+})
+
+
+navlink.forEach((link) => {
+    link.addEventListener('mouseover', () => {
+        let spans = link.children
+
+        Array.from(spans).forEach((span) => {
+            span.style.display = "inline"
+        });
+    })
+})
+
+navlink.forEach((link) => {
+    link.addEventListener('mouseout', () => {
+        let spans = link.children
+
+        Array.from(spans).forEach((span) => {
+            span.style.display = "none"
+        });
+    })
+})
+
+
+
+
+const circles = document.querySelectorAll('.circle')
 
 setTimeout(() => {
-    circle.classList.add('pulsate-fwd')
-    circle.style.display = "block";
+
+    Array.from(circles).forEach((circle) => {
+        circle.classList.add('pulsate-fwd')
+        circle.style.display = "block";
+    });
 }, 3000);
 
 

@@ -112,8 +112,8 @@ h4{
     margin-left: 2rem;
 }
 
-.nav-link:active{
-    color:var(--header-link-active)
+.nav-link:hover{
+    color:var(--header-link-hover)
 }
 
 .nav-link{
@@ -122,15 +122,17 @@ h4{
     color: var(--header-link);
 }
 
-.nav-link:hover{
-    color: var(--header-link-hover);
+.nav-link span{
+    display:none;
+    color:var(--light)
 }
 
-.nav-logo {
+
+#nav-logo {
     margin-left: 5%;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 500;
-    color: var(--purple);
+    color: var(--light);
 }
 
 svg {
@@ -216,7 +218,7 @@ svg {
 
 @media only screen and (max-width: 768px){
     .container{
-        padding:0 15%;
+        padding:0 10%;
     }
 }
 
@@ -232,7 +234,7 @@ svg {
     padding-bottom:20%;
 }
 
-#circle{
+.circle{
     position:absolute;
     top:50%;left:-5%;
     height:15px;
@@ -242,19 +244,19 @@ svg {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     #contents{
         padding:0 10%;
     }
 
-    #circle{
-        left:-8%;
+    .circle{
+        left:-12%;
     }
 }
 
 .pulsate-fwd {
-	-webkit-animation: pulsate-fwd 0.5s ease-in-out 3 both;
-	animation: pulsate-fwd 0.5s ease-in-out 3 both;
+	-webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+	animation: pulsate-fwd 0.5s ease-in-out infinite both;
 }
 
 @-webkit-keyframes pulsate-fwd {
