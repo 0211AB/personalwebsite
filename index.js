@@ -1,6 +1,9 @@
 const navspan = document.querySelectorAll('.nav-link span')
 const navlink = document.querySelectorAll('.nav-link')
 
+const svg1 = document.getElementById('svg1')
+const svg2 = document.getElementById('svg2')
+
 const navlogo = document.getElementById('nav-logo')
 
 navlogo.addEventListener('mouseover', () => {
@@ -37,9 +40,6 @@ navlink.forEach((link) => {
     })
 })
 
-
-
-
 const circles = document.querySelectorAll('.circle')
 
 setTimeout(() => {
@@ -50,40 +50,54 @@ setTimeout(() => {
     });
 }, 3000);
 
+const path = {
+    curviness: 1.25,
+    autoRotate: true,
+    values: [
+        { x: 100, y: -20 },
+        { x: 300, y: 10 },
+        { x: 320, y: 100 },
+        { x: 250, y: -200 },
+        { x: 100, y: 100 },
+        { x: window.innerWidth, y: 100 }
+    ]
+}
 
-Object.defineProperty(Element.prototype, 'outerHeight', {
-    'get': function () {
-        var height = this.clientHeight;
-        var computedStyle = window.getComputedStyle(this);
-        height += parseInt(computedStyle.marginTop, 10);
-        height += parseInt(computedStyle.marginBottom, 10);
-        height += parseInt(computedStyle.borderTopWidth, 10);
-        height += parseInt(computedStyle.borderBottomWidth, 10);
-        return height;
-    }
-});
+const path2 = {
+    curviness: 1.75,
+    autoRotate: true,
+    values: [
+        { x: 200, y: -20 },
+        { x: 300, y: 100 },
+        { x: 120, y: 100 },
+        { x: 150, y: -200 },
+        { x: 300, y: 10 },
+        { x: 600, y: 200 },
+        { x: window.innerWidth, y: 100 }
+    ]
+}
 
-let navbar = document.querySelector('.header')
-let container = document.querySelector('.container')
+const tween = new TimelineLite()
 
-const totalheight = document.body.clientHeight
-const topremoved = navbar.clientHeight + (container.outerHeight - container.clientHeight)
+tween.add(
+    TweenLite.to(".svg", 1, {
+        bezier: path,
+        ease: Power1.easeInOut
+    }),
+    TweenLite.to(".svg2", 1, {
+        bezier: path2,
+        ease: Power1.easeInOut
+    })
+)
 
-let y = totalheight - topremoved
-let y1 = y / 3;
-let y2 = 2 * y / 3;
+const controller = new ScrollMagic.Controller()
 
-console.log(totalheight)
-console.log(topremoved)
-console.log(y, y1, y2)
+const scene = new ScrollMagic.Scene({
+    triggerElement: '.header',
+    duration: 500,
+    triggerHook: 0
+}).setTween(tween).addTo(controller)
 
-window.addEventListener('scroll', () => {
 
-    console.log(scrollY)
-    if (scrollY <= y1)
-        console.log("Less than y1")
-    else if (scrollY > y1 && scrollY <= y2)
-        console.log("Middle")
-    else
-        console.log("End")
-})
+
+
