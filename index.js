@@ -50,6 +50,35 @@ setTimeout(() => {
     });
 }, 3000);
 
+let webdev = document.getElementById('webdev')
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 450) {
+        webdev.innerHTML = `<span class="title">&dollar;{</span>WebDev<span class="title">}</span>'`
+    }
+})
+
+let cols = document.querySelector('.cols')
+var sum = 0
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth > 400) {
+
+        Array.from(cols.children).forEach((col) => {
+            console.log(col.style)
+        })
+    }
+
+    console.log(sum)
+})
+
+
+
+
+
+/*
 const path = {
     curviness: 1.25,
     autoRotate: true,
@@ -96,8 +125,4 @@ const scene = new ScrollMagic.Scene({
     triggerElement: '.header',
     duration: 500,
     triggerHook: 0
-}).setTween(tween).addTo(controller)
-
-
-
-
+}).setTween(tween).addTo(controller) */
