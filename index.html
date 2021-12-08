@@ -57,7 +57,6 @@
     <div class="container" id="c1">
         <div id="contents">
             <div id="heading">
-                <div class="circle"></div>
                 <h1>ab<span class="title">.is()</span></h1>
             </div>
             <div id="det-anim">
@@ -66,20 +65,37 @@
                 <h4>Creative frontend devloper,</h4>
                 <h4>designer and aspiring full stack devloper.</h4>
             </div>
-            <svg class="svg" xmlns="http://www.w3.org/2000/svg" id="open" viewBox="0 0 100 100">
+            <svg class="svg" xmlns="http://www.w3.org/2000/svg" id="abiz" viewBox="0 0 100 100"
+                aria-labelledby="aBizTitle aBizDesc">
                 <g class="open-open" data-svg-origin="50 50.00416564941406" transform="matrix(1,0,0,1,0,0)">
                     <path fill="var(--purple)"
                         d="M90 70.2l-2-44.1c-.5-9.3-8.4-16.5-17.8-16.1l-44.1 2c-9.3.5-16.5 8.4-16.1 17.8l2 44.1c.4 9.3 8.4 16.6 17.7 16.1l44.1-2c9.4-.5 16.6-8.4 16.2-17.8z">
                     </path>
                 </g>
-            </svg>
-
-            <svg class="svg2" xmlns="http://www.w3.org/2000/svg" id="smart" viewBox="0 0 100 100">
                 <g class="smart-smart" data-svg-origin="49.99407482147217 49.99379062652588"
                     transform="matrix(1,0,0,1,0,0)">
                     <path fill="var(--purple)"
                         d="M80.1 39.2L34.2 11.9c-8.8-5.2-19.9 1-20.1 11.2l-.7 53.4c-.1 10.2 10.8 16.7 19.8 11.8l46.6-26.1c8.9-5 9.1-17.8.3-23z">
                     </path>
+                </g>
+                <g class="abiz-abiz">
+                    <g class="abiz-body">
+                        <path class="abiz-r-arm" fill="none" stroke="#9FD4E5" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="8.141"
+                            d="M69 60.2s15.6 2.2 13.2 18.4c-2.6 17.5-18.7 3.6-24.5 8.9" />
+                        <path class="abiz-l-arm" fill="none" stroke="#D1F4FC" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-miterlimit="10" stroke-width="8.141"
+                            d="M37.4 61.6C22.9 93 26.6 56.1 12 62.3" />
+                        <g class="abiz-head">
+                            <path class="abiz-skin" fill="#D1F4FC"
+                                d="M36.1 19.4l21.4-9.5c4.7-2.1 10.3-.9 13.7 2.9l15.7 17.4c3.5 3.8 4.1 9.5 1.5 14L76.7 64.4c-2.5 4.5-7.7 6.8-12.8 5.7 0 0-19.8-4.1-25.3-5.7-4-1.1-6.6-5.3-7-9.6l-2.4-23.3c-.6-5.1 2.2-10 6.9-12.1z" />
+                            <path class="abiz-face" fill="none" stroke="#004E88" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".775"
+                                d="M42.6 42.1c-.3 1.6-1.9 2.7-3.5 2.3-1.6-.3-2.7-1.9-2.3-3.5m19.1 4c-.3 1.6-1.9 2.7-3.5 2.3-1.6-.3-2.7-1.9-2.3-3.5m-2.4 7.2c-.3 1.6-1.9 2.7-3.5 2.3-1.6-.3-2.7-1.9-2.3-3.5" />
+                            <path class="abiz-s" fill="#9FD4E5"
+                                d="M86.9 30.2L71.2 12.7c-.8-.9-1.7-1.7-2.8-2.3 4.7 6.3 7.6 14.3 7.6 23 0 15.8-9.2 29.2-22.2 34.4C59.2 69 63.9 70 63.9 70c5.1 1.1 10.2-1.2 12.8-5.7L88.4 44c2.6-4.4 2-10-1.5-13.8z" />
+                        </g>
+                    </g>
                 </g>
             </svg>
 
@@ -88,10 +104,10 @@
 
     <div class="container" id="c2">
         <div id="contents2">
-            <div id="heading">
+            <div id="heading2">
                 <h1>a developer</h1>
             </div>
-            <div id="det-anim">
+            <div id="anim2">
                 <br>
                 <h4>with a strong foothold in arts,</h4>
                 <h3>design And illustration</h3>
@@ -104,7 +120,7 @@
             <h1>'<span class="title">${</span>VideoGames<span class="title">}</span></h1>
             <h1><span class="title">${</span>Art<span class="title">}</span></h1>
             <h1><span class="title">${</span>BasketBall<span class="title">}</span></h1>
-            <h1  id="webdev"><span class="title">${</span>WebDevlopment<span class="title">}</span>'</h1>
+            <h1 id="webdev"><span class="title">${</span>WebDevlopment<span class="title">}</span>'</h1>
         </div>
 
     </div>
@@ -128,17 +144,17 @@
                     <li>72 cups of cofee </li>
                 </ul>
             </div>
-        </div>      
+        </div>
     </div>
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+        integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/BezierPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
     <script src="index.js"></script>
 </body>

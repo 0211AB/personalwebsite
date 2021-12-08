@@ -58,71 +58,104 @@ window.addEventListener('resize', () => {
     }
 })
 
-let cols = document.querySelector('.cols')
-var sum = 0
+
+//  SCROLLMAGIC ANIMATONS
+
+const tlx = new TimelineLite()
+
+const tlx1 = TweenMax.to('.abiz-head', 1, {
+    opacity:0,
+    transformOrigin: '-115%',
+    scale: 2,
+    yPercent: -5,
+    ease: Power2.easeInOut,
+}, 'startx+=1')
+
+const tlx2 = TweenMax.to('.abiz-r-arm,.abiz-l-arm', 1, {
+    opacity:0,
+    transformOrigin: '-200%',
+    scale: 2,
+    yPercent: -5,
+    ease: Power2.easeInOut,
+}, 'startx+=1')
+
+const tlx3 = TweenMax.to('.smart-smart', 2.5, {
+    autoAlpha: 0,
+    rotationZ: -500,
+    ease: Power1.easeOut,
+},)
+
+const tlx4 = TweenMax.to('.open-open', 2, {
+    autoAlpha: 0,
+    rotationZ: 500,
+    ease: Power1.easeOut,
+},)
 
 
 
-window.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth > 400) {
 
-        Array.from(cols.children).forEach((col) => {
-            console.log(col.style)
-        })
-    }
-
-    console.log(sum)
-})
+tlx.addLabel('startx')
+tlx.add([tlx1,tlx2,tlx3,tlx4])
 
 
+const Tweenintro1 = TweenMax.from('#heading', 2, {
+    autoAlpha: 0,
+    rotationZ: 50,
+    transformOrigin: '50% 50% 10%',
+    ease: Power1.easeOut,
+}, 'enter')
+
+const Tweenintro2 = TweenMax.from('#det-anim', 2, {
+    autoAlpha: 0,
+    x: -32,
+    ease: Power1.easeOut,
+}, 'enter+=2.5');
+
+const tl = new TimelineLite()
+
+tl.addLabel('enter', 1)
+tl.add(Tweenintro1)
+tl.add(Tweenintro2)
 
 
+const tl2 = new TimelineLite()
 
-/*
-const path = {
-    curviness: 1.25,
-    autoRotate: true,
-    values: [
-        { x: 100, y: -20 },
-        { x: 300, y: 10 },
-        { x: 320, y: 100 },
-        { x: 250, y: -200 },
-        { x: 100, y: 100 },
-        { x: window.innerWidth, y: 100 }
-    ]
-}
+const Tween2_1 = TweenMax.to('#heading', 2, {
+    autoAlpha: 0,
+    transformOrigin: '50% 50% 10%',
+    ease: Power1.easeOut,
+}, 'start+=1')
 
-const path2 = {
-    curviness: 1.75,
-    autoRotate: true,
-    values: [
-        { x: 200, y: -20 },
-        { x: 300, y: 100 },
-        { x: 120, y: 100 },
-        { x: 150, y: -200 },
-        { x: 300, y: 10 },
-        { x: 600, y: 200 },
-        { x: window.innerWidth, y: 100 }
-    ]
-}
+const Tween2_2 = TweenMax.to('#det-anim', 2, {
+    autoAlpha: 0,
+    x: -32,
+    ease: Power1.easeOut,
+}, 'start+=1.3');
 
-const tween = new TimelineLite()
-
-tween.add(
-    TweenLite.to(".svg", 1, {
-        bezier: path,
-        ease: Power1.easeInOut
-    }),
-    TweenLite.to(".svg2", 1, {
-        bezier: path2,
-        ease: Power1.easeInOut
-    })
-)
+tl2.addLabel('start')
+tl2.add(Tween2_1)
+tl2.add(Tween2_2)
 
 const controller = new ScrollMagic.Controller()
 
-const scene = new ScrollMagic.Scene({
-    triggerElement: '.header',
-    duration: 500,
+const scene1 = new ScrollMagic.Scene({
+    triggerElement: "#c1",
+    duration: "70%",
     triggerHook: 0
-}).setTween(tween).addTo(controller) */
+}).addIndicators()
+
+
+const scene2 = new ScrollMagic.Scene({
+    triggerElement: "#c2",
+    duration: "70%",
+    triggerHook: 0
+}).addIndicators()
+
+scene1.setTween([tl2, tlx])
+
+controller.addScene(scene1)
+controller.addScene(scene2)
+
+
+
+/*scene.setTween(tl3)*/
