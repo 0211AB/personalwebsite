@@ -49,113 +49,47 @@ setTimeout(() => {
         circle.style.display = "block";
     });
 }, 3000);
-
-let webdev = document.getElementById('webdev')
-
-window.addEventListener('resize', () => {
-    if (window.innerWidth < 450) {
-        webdev.innerHTML = `<span class="title">&dollar;{</span>WebDev<span class="title">}</span>'`
-    }
-})
-
-
 //  SCROLLMAGIC ANIMATONS
 
 const tlx = new TimelineLite()
 
 const tlx1 = TweenMax.to('.abiz-head', 1, {
-    opacity:0,
+    opacity: 0,
     transformOrigin: '-115%',
     scale: 2,
     yPercent: -5,
     ease: Power2.easeInOut,
-}, 'startx+=1')
+})
 
 const tlx2 = TweenMax.to('.abiz-r-arm,.abiz-l-arm', 1, {
-    opacity:0,
+    opacity: 0,
     transformOrigin: '-200%',
     scale: 2,
     yPercent: -5,
     ease: Power2.easeInOut,
-}, 'startx+=1')
+})
 
 const tlx3 = TweenMax.to('.smart-smart', 2.5, {
     autoAlpha: 0,
     rotationZ: -500,
     ease: Power1.easeOut,
-},)
+})
 
 const tlx4 = TweenMax.to('.open-open', 2, {
     autoAlpha: 0,
     rotationZ: 500,
     ease: Power1.easeOut,
-},)
+})
 
-
-
-
-tlx.addLabel('startx')
-tlx.add([tlx1,tlx2,tlx3,tlx4])
-
-
-const Tweenintro1 = TweenMax.from('#heading', 2, {
-    autoAlpha: 0,
-    rotationZ: 50,
-    transformOrigin: '50% 50% 10%',
-    ease: Power1.easeOut,
-}, 'enter')
-
-const Tweenintro2 = TweenMax.from('#det-anim', 2, {
-    autoAlpha: 0,
-    x: -32,
-    ease: Power1.easeOut,
-}, 'enter+=2.5');
-
-const tl = new TimelineLite()
-
-tl.addLabel('enter', 1)
-tl.add(Tweenintro1)
-tl.add(Tweenintro2)
-
-
-const tl2 = new TimelineLite()
-
-const Tween2_1 = TweenMax.to('#heading', 2, {
-    autoAlpha: 0,
-    transformOrigin: '50% 50% 10%',
-    ease: Power1.easeOut,
-}, 'start+=1')
-
-const Tween2_2 = TweenMax.to('#det-anim', 2, {
-    autoAlpha: 0,
-    x: -32,
-    ease: Power1.easeOut,
-}, 'start+=1.3');
-
-tl2.addLabel('start')
-tl2.add(Tween2_1)
-tl2.add(Tween2_2)
+tlx.add([tlx1, tlx2, tlx3, tlx4])
 
 const controller = new ScrollMagic.Controller()
 
 const scene1 = new ScrollMagic.Scene({
     triggerElement: "#c1",
-    duration: "70%",
-    triggerHook: 0
-}).addIndicators()
+    duration: "30%",
+    triggerHook: 0,
+})
 
-
-const scene2 = new ScrollMagic.Scene({
-    triggerElement: "#c2",
-    duration: "70%",
-    triggerHook: 0
-}).addIndicators()
-
-scene1.setTween([tl2, tlx])
-
+scene1.setTween(tlx)
 controller.addScene(scene1)
-controller.addScene(scene2)
-
-
-
-/*scene.setTween(tl3)*/
