@@ -69,13 +69,13 @@ const tlx2 = TweenMax.to('.abiz-r-arm,.abiz-l-arm', 1, {
     ease: Power2.easeInOut,
 })
 
-const tlx3 = TweenMax.to('.smart-smart', 2.5, {
+const tlx3 = TweenMax.to('.smart-smart', 1, {
     autoAlpha: 0,
     rotationZ: -500,
     ease: Power1.easeOut,
 })
 
-const tlx4 = TweenMax.to('.open-open', 2, {
+const tlx4 = TweenMax.to('.open-open', 1, {
     autoAlpha: 0,
     rotationZ: 500,
     ease: Power1.easeOut,
@@ -86,8 +86,8 @@ tlx.add([tlx1, tlx2, tlx3, tlx4])
 const controller = new ScrollMagic.Controller()
 
 const scene1 = new ScrollMagic.Scene({
-    triggerElement: "#c1",
-    duration: "30%",
+    triggerElement: ".header",
+    duration: "50%",
     triggerHook: 0,
 })
 
