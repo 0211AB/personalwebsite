@@ -437,12 +437,53 @@ i{
     display: flex;
     flex-direction: column;
     padding:0 5%;
-    justify-content: space-around;
 }
 
 #heading-proj{
    display: flex;
    justify-content: center;
+   position:relative;
+   left:1.5%;
    align-items: center;
 }
 
+#projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects h3{
+    text-align: center;
+}
+
+#projects img{
+    margin-top: 8rem;
+    height:30rem;
+}
+
+@media only screen and (max-width: 870px) { 
+    #projects img{
+        height:25rem;
+        width:auto;
+    }
+
+    #heading-proj{
+        margin: 5rem 0;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    #projects img{
+        height:20rem;
+        width:auto;
+    }
+} 
+
+@media only screen and (max-width: 470px) {
+    #projects img{
+        height:15rem;
+        width:auto;
+    }
+} 
