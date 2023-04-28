@@ -95,3 +95,32 @@ scene1.setTween(tlx)
 controller.addScene(scene1)
 
 
+var et = $("#et")
+var astro = $('#astro')
+
+// Animate our properties individually
+tweenProperty([et, astro], "scale", 0.5, 0.8);
+tweenProperty(et, "x", 0, 150);
+tweenProperty(et, "y", 0, 150);
+tweenProperty(et, "opacity", 0.1, 0.5);
+
+tweenProperty(astro, "scale", 0.2, 0.8);
+tweenProperty(astro, "x", 0, 50);
+tweenProperty(astro, "y", 0, 80);
+tweenProperty(astro, "opacity", 0.5, 1);
+
+function tweenProperty(target, prop, min, max) {
+    TweenLite.to(target, 3, {
+        [prop]: random(min, max),
+        ease: Sine.easeInOut,
+        onComplete: tweenProperty,
+        onCompleteParams: [target, prop, min, max],
+    });
+}
+
+// ==================================================================
+function random(min, max) {
+    if (max == null) { max = min; min = 0; }
+    return Math.random() * (max - min) + min;
+}
+
