@@ -98,7 +98,7 @@ controller.addScene(scene1)
 var et = $("#et")
 var astro = $('#astro')
 
-// Animate our properties individually
+// Animate our properties in.boxidually
 tweenProperty([et, astro], "scale", 0.5, 0.8);
 tweenProperty(et, "x", 0, 150);
 tweenProperty(et, "y", 0, 150);
