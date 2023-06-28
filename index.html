@@ -222,6 +222,29 @@
         </div>
     </div>
 
+    <div id="c2_1">
+        <h1>ab<span class="title">.gallery()</span></h3>
+
+            <section>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </section>
+
+            <section>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+            </section>
+    </div>
+
+
     <div class="container" id="c4">
         <div id="heading-proj">
             <h1>ab<span class="title">.projects()</span></h1>
@@ -277,9 +300,11 @@
                         </div>
                         <div class="right">
                             <h2 class="project-title">TruckBazi</h2>
-                            <h6 class="project-sub-title internship">While working as an Associate SDE At Turnkey Tech
+                            <h6 class="project-sub-title internship">While working as an Associate SDE At Turnkey
+                                Tech
                                 Solutions</h6>
-                            <h3 class="project-sub-title">Digital PLatform for selling and renting commercial vehicles
+                            <h3 class="project-sub-title">Digital PLatform for selling and renting commercial
+                                vehicles
                             </h3>
                             <div class="buttons">
                                 <a href="https://truckbazi.com/" class="primary-btn outline external-link">
@@ -374,8 +399,10 @@
                         </div>
                         <div class="right">
                             <h2 class="project-title">Bingee</h2>
-                            <h3 class="project-sub-title">This project is a simple front end clone of Netflix. It was
-                                created with React. It uses The MovieDB Api to search for movies and display details.
+                            <h3 class="project-sub-title">This project is a simple front end clone of Netflix. It
+                                was
+                                created with React. It uses The MovieDB Api to search for movies and display
+                                details.
                             </h3>
                             <div class="buttons">
                                 <a href="https://github.com/0211AB/Binge" class="primary-btn outline external-link">
@@ -424,7 +451,8 @@
                         <div class="right">
                             <h2 class="project-title">AntiNode</h2>
                             <h3 class="project-sub-title">A PeerToPeer learning and PeerToPeer lending platform for
-                                merger of edTech and Finance,cretaing a product that caters to the student community and
+                                merger of edTech and Finance,cretaing a product that caters to the student community
+                                and
                                 private investors.
                             </h3>
                             <div class="buttons">
@@ -535,8 +563,38 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
     <script src="https://kit.fontawesome.com/5575bed50a.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
     <script>
         AOS.init();
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#c2_1 .img',
+                scrub: true
+            }
+        })
+            .to('#c2_1 .img', {
+                stagger: .2,
+                y: -350,
+                scrub: true
+            })
     </script>
 
     <script src="index.js"></script>
