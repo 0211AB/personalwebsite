@@ -1009,6 +1009,8 @@ i {
     width: 95vw;
 }
 
+
+
 #c2_1 .gallery {
     height: 100vh;
 }
@@ -1077,4 +1079,13 @@ i {
     border-right: 1px solid black;
 }
 
-@media (max-width) {}
+@media (max-width:800px) {
+    #c2_1 section {
+        grid-template-columns: repeat(2,1fr);
+        padding:2px;
+    }
+
+    #c2_1 .img:nth-of-type(7) {
+        display: none;
+    }
+}
