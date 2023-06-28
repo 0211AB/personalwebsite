@@ -1,3 +1,11 @@
+window.addEventListener('DOMContentLoaded', function () {
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(function () {
+        document.body.style.overflow = 'auto';
+    }, 7000);
+});
+
 const navspan = document.querySelectorAll('.nav-link span')
 const navlink = document.querySelectorAll('.nav-link')
 

@@ -11,13 +11,46 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        window.addEventListener('beforeunload', function () {
+            window.history.scrollRestoration = 'manual';
+        });
+
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                window.scrollTo(0, 0);
+                window.history.scrollRestoration = 'auto';
+            }, 0);
+        });
+
+    </script>
 </head>
 
 <body>
 
+    <div id="loader">
+        <div id="stars"></div>
+        <div id="wrapperload">
+            <div class="elem">
+                <img src="./Images/loader_logo.png" alt="">
+            </div>
+            <div class="elem">
+                <h3>Embracing Life's Ever-Unfolding Story</h3>
+            </div>
+            <div class="elem">
+                <h3>Celebrating Milestones and Achievements</h3>
+            </div>
+            <div class="elem">
+                <h3>Revealing the Colors of My Life</h3>>
+            </div>
+        </div>
+        <div id="stars3"></div>
+    </div>
+
     <header class="header">
         <nav class="navbar">
-            <a href="/" id="nav-logo"><span data-aos="fade-right" data-aos-duration="2500">{</span>Abhay Bajaj<span data-aos="fade-left" data-aos-duration="2500">}</span></a>
+            <a href="/" id="nav-logo"><span data-aos="fade-right" data-aos-duration="2500">{</span>Abhay Bajaj<span
+                    data-aos="fade-left" data-aos-duration="2500">}</span></a>
             <ul class="nav-menu" id="nm">
                 <li class="nav-item">
                     <a href="./Resume/AbhayBajaj2023.pdf" class="nav-link"
@@ -416,8 +449,9 @@
                     </desc>
                     <g class="astro-astro" data-svg-origin="47.869699478149414 49.3721838593483">
                         <g class="astro-tube" data-svg-origin="62.29999923706055 59.32244873046875">
-                            <path fill="none" stroke="#e2f1f7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                stroke-width="5.061" d="M62.3 58.8s10.4 3.6 14.5-8.1-8.6-18.4-8.6-18.4">
+                            <path fill="none" stroke="#e2f1f7" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-miterlimit="10" stroke-width="5.061"
+                                d="M62.3 58.8s10.4 3.6 14.5-8.1-8.6-18.4-8.6-18.4">
                             </path>
                         </g>
                         <g class="astro-l-arm" data-svg-origin="39.36406917572022 56.3940673828125">

@@ -39,6 +39,7 @@ html {
 
 body {
     min-height: 100vh;
+    overflow: hidden;
 }
 
 li {
@@ -251,7 +252,7 @@ h4 {
 }
 
 .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
+    opacity: 1;
 }
 
 .hamburger.active .bar:nth-child(1) {
@@ -502,7 +503,7 @@ i {
     margin: 0 auto;
     margin-bottom: 15rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    
+
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
     border-radius: 10px;
@@ -515,7 +516,7 @@ i {
 
 #projects .item .left {
     flex: 1;
-    padding:2rem
+    padding: 2rem
 }
 
 #projects .item .right {
@@ -549,7 +550,7 @@ i {
 #projects .item .right .project-title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color:#fff
+    color: #fff
 }
 
 #projects .item .right .project-sub-title {
@@ -614,7 +615,7 @@ i {
     }
 
     #projects .item .left .img-item {
-        height:15rem;
+        height: 15rem;
     }
 
     #projects .item .left .img-item img {
@@ -924,5 +925,63 @@ i {
 
     to {
         transform: translateY(-2000px);
+    }
+}
+
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    animation: anim2 1s cubic-bezier(0.19, 1, 0.22, 1) 7s both;
+    background-color: #000;
+}
+
+#wrapperload {
+    width: 700px;
+    text-align: center;
+    height: 100px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#wrapperload .elem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#wrapperload .elem img {
+    width: 40%;
+}
+
+#wrapperload .elem:nth-child(1) {
+    animation: anim 2s cubic-bezier(0.19, 1, 0.22, 1) 1s both;
+}
+
+#wrapperload .elem:nth-child(2) {
+    animation: anim 2s cubic-bezier(0.19, 1, 0.22, 1) 3s both;
+}
+
+#wrapperload .elem:nth-child(3) {
+    animation: anim 2s cubic-bezier(0.19, 1, 0.22, 1) 5s both;
+}
+
+@keyframes anim {
+    to {
+        margin-top: -100px;
+    }
+}
+
+@keyframes anim2 {
+    to {
+        transform: translateY(-100%);
     }
 }
