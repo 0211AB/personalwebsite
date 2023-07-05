@@ -199,7 +199,7 @@ cards.forEach((card, index) => {
     ScrollTrigger.create({
         trigger: card,
         start: `top-=${index * spacer} top`,
-        endTrigger: '.all-items',
+        endTrigger: '#end',
         end: `bottom top+=${200 + (cards.length * spacer)}`,
         pin: true,
         pinSpacing: false,
