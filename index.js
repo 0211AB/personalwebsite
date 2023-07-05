@@ -59,37 +59,79 @@ setTimeout(() => {
 }, 3000);
 //  SCROLLMAGIC ANIMATONS
 
-const tlx = new TimelineLite()
+const tlx = new gsap.timeline()
 
-const tlx1 = TweenMax.to('.abiz-head', 1, {
+const tlx1 = TweenMax.to('.abiz-head', 0.5, {
     opacity: 0,
     transformOrigin: '-115%',
     scale: 2,
     yPercent: -5,
     ease: Power2.easeInOut,
+    scrollTrigger: {
+        trigger: '#contents',
+        scrub: true
+    }
 })
 
-const tlx2 = TweenMax.to('.abiz-r-arm,.abiz-l-arm', 1, {
+const tlx2 = TweenMax.to('.abiz-r-arm,.abiz-l-arm', 0.5, {
     opacity: 0,
     transformOrigin: '-200%',
     scale: 2,
     yPercent: -5,
     ease: Power2.easeInOut,
+    scrollTrigger: {
+        trigger: '#contents',
+        scrub: true
+    }
 })
 
-const tlx3 = TweenMax.to('.smart-smart', 1, {
+const tlx3 = TweenMax.to('.smart-smart', 0.5, {
     autoAlpha: 0,
     rotationZ: -500,
     ease: Power1.easeOut,
+    scrollTrigger: {
+        trigger: '#contents',
+        scrub: true
+    }
 })
 
-const tlx4 = TweenMax.to('.open-open', 1, {
+const tlx4 = TweenMax.to('.open-open', 0.5, {
     autoAlpha: 0,
     rotationZ: 500,
     ease: Power1.easeOut,
+    scrollTrigger: {
+        trigger: '#contents',
+        scrub: true
+    }
 })
 
-tlx.add([tlx1, tlx2, tlx3, tlx4])
+gsap.registerPlugin(ScrollTrigger);
+
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+})
+
+function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+const tl0 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '#c2_1 .img',
+        scrub: true
+    }
+})
+    .to('#c2_1 .img', {
+        stagger: .2,
+        y: -350,
+        scrub: true
+    })
+
+tlx.add([tl0, tlx1, tlx2, tlx3, tlx4])
 
 const controller = new ScrollMagic.Controller()
 
@@ -132,3 +174,37 @@ function random(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+const cards = gsap.utils.toArray(".item");
+const spacer = 20;
+const minScale = 0.8;
+
+const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
+
+cards.forEach((card, index) => {
+
+    const scaleVal = distributor(index, cards[index], cards);
+
+    const tween = gsap.to(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: `top top`,
+            scrub: true,
+            // markers: true,
+            invalidateOnRefresh: true
+        },
+        ease: "none",
+        scale: scaleVal
+    });
+
+    ScrollTrigger.create({
+        trigger: card,
+        start: `top-=${index * spacer} top`,
+        endTrigger: '.all-items',
+        end: `bottom top+=${200 + (cards.length * spacer)}`,
+        pin: true,
+        pinSpacing: false,
+        // markers: true,
+        id: 'pin',
+        invalidateOnRefresh: true,
+    });
+});

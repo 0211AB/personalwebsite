@@ -568,31 +568,7 @@
     <script>
         AOS.init();
 
-        gsap.registerPlugin(ScrollTrigger);
-
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-        })
-
-        function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
-
-        requestAnimationFrame(raf)
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#c2_1 .img',
-                scrub: true
-            }
-        })
-            .to('#c2_1 .img', {
-                stagger: .2,
-                y: -350,
-                scrub: true
-            })
+        
     </script>
 
     <script src="index.js"></script>
